@@ -1,0 +1,12 @@
+# This is a boilerplate parameters config generated for pipeline 'modelo'
+# using Kedro 0.19.13.
+#
+# Documentation for this file format can be found in "Parameters"
+# Link: https://docs.kedro.org/en/0.19.13/configuration/parameters.html
+
+
+cross_parameters:
+  initial: '180 days'
+  period: '31 days'
+  horizon: '30 days'
+  parallel: "processes"

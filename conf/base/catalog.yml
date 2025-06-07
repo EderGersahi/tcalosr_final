@@ -1,0 +1,72 @@
+# Here you can define all your datasets by using simple YAML syntax.
+#
+# Documentation for this file format can be found in "The Data Catalog"
+# Link: https://docs.kedro.org/en/stable/data/data_catalog.html
+
+reservaciones:
+  type: pandas.CSVDataset
+  filepath: data/01_raw/iar_Reservaciones.csv
+
+reservaciones_cleaned:
+  type: pandas.CSVDataset
+  filepath: data/02_intermediate/reservaciones_cleaned.csv
+
+imputar_data:
+  type: pandas.CSVDataset
+  filepath: data/02_intermediate/imputar_data.csv
+
+mensual_income:
+  type: pandas.CSVDataset
+  filepath: streamlit/mensual_income.csv
+
+nights_per_month:
+  type: pandas.CSVDataset
+  filepath: streamlit/nights_per_month.csv
+
+ingresos_por_fecha:
+  type: pandas.CSVDataset
+  filepath: data/02_intermediate/ingresos_por_fecha.csv
+
+suavizado_data:
+  type: pandas.CSVDataset
+  filepath: data/02_intermediate/suavizado_data.csv
+
+rename_to_prophet:
+  type: pandas.CSVDataset
+  filepath: data/03_primary/rename_to_prophet.csv
+
+
+holidays_days:
+  type: pandas.CSVDataset
+  filepath: data/03_primary/holidays_days.csv
+
+df_prophet_regressors:
+  type: pandas.CSVDataset
+  filepath: data/03_primary/df_prophet_regressors.csv
+
+best_hyperparams:
+  type: json.JSONDataset
+  filepath: data/05_model_input/best_hyperparams.json
+
+best_prophet_model:
+  type: kedro_mlflow.io.models.MlflowModelTrackingDataset
+  flavor: mlflow.prophet
+  # save_args:
+  #   model_name: TCA_prophet  
+
+results:
+  type: pandas.CSVDataset
+  filepath: streamlit/results.csv
+
+mape:
+  type: kedro_mlflow.io.metrics.MlflowMetricDataset
+
+mdape:
+  type: kedro_mlflow.io.metrics.MlflowMetricDataset
+
+rmse:
+  type: kedro_mlflow.io.metrics.MlflowMetricDataset
+
+mdape1:
+  type: pandas.CSVDataset
+  filepath: streamlit/mdape1.csv
